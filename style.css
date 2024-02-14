@@ -1,0 +1,219 @@
+/* RESET AND REUSE STYLE  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: #ddd;
+  padding-bottom: 30px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.container {
+  width: 50%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CALENDAR HEADER STYLE  */
+.cal-header {
+  background-color: #0aaae9;
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.cal-header h1 {
+  font-size: 6rem;
+  color: #fff;
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* CALENDAR BODY STYLE  */
+.cal-body {
+  display: grid;
+  gap: 30px;
+}
+.calendar {
+  background-color: #fff;
+}
+.month-name {
+  background-color: #0aaae9;
+  text-align: center;
+  padding: 6px 0;
+}
+.month-name span {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.date {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+.date div {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #fff;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  
+}
+.date div:not(.day){
+  border-radius: 5px;
+}
+.date
+  div:not(
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .active,
+    .day
+  ):hover {
+  background-color: aliceblue;
+}
+.date div span {
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #333;
+}
+.date .day span {
+  font-weight: 500;
+}
+/* COLLAPSE DATE SYTLE  */
+.col-1 {
+  display: none;
+}
+.col-3 {
+  grid-column: span 2;
+}
+.col-4 {
+  grid-column: span 3;
+}
+.col-5 {
+  grid-column: span 4;
+}
+.col-6 {
+  grid-column: span 5;
+}
+.col-7 {
+  grid-column: span 6;
+}
+
+/* TODAY DATE CELL HIGHIGHT STYLE  */
+.date div.active {
+  background-color: #95a5a6;
+}
+.date div.active span {
+  color: #fff;
+}
+.date .day {
+  border-bottom: 1px solid #333;
+}
+
+/* ALL HOLIDAY HIGHIGHT STYLE  */
+.holiday {
+  color: #0aaae9 !important;
+}
+
+/* SECOND LAYOUT IN LARGE SCREEN  */
+@media screen and (min-width: 1050px) {
+  .cal-body.small {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .container.small {
+    width: 95%;
+  }
+
+  .cal-body.medium {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container.medium {
+    width: 70%;
+  }
+
+  .cal-body.large {
+    grid-template-columns: 1fr;
+  }
+  .container.large {
+    width: 50%;
+  }
+}
+
+.layout-change {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 120px;
+  height: 30px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: #333;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* RESPONSIVE LAYOUT -> SMALL, TABLET, MEDIUM  */
+@media screen and (max-width: 800px) {
+  .container {
+    width: 65%;
+  }
+  .cal-header {
+    padding: 15px 0;
+    margin-bottom: 15px;
+  }
+  .cal-header h1 {
+    font-size: 4rem;
+  }
+  .month-name span {
+    font-size: 1.1rem;
+  }
+  .layout-change {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    width: 80%;
+  }
+  .cal-header {
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+  .cal-header h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    width: 95%;
+  }
+  .cal-header h1 {
+    font-size: 2rem;
+  }
+  .month-name span {
+    font-size: 1rem;
+  }
+  .date div span {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .layout-change {
+    display: none;
+  }
+}
